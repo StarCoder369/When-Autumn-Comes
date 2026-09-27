@@ -33,13 +33,16 @@ public class FadeObject : MonoBehaviour
         }
         fadePercent = fadeProgress / totalFadeAmount;
         SetAlpha(fadePercent);
+
+        fadeProgress = Mathf.Clamp(fadeProgress, 0, totalFadeAmount);
     }
 
     public void Revive()
     {
         if (fadePercent < 1)
         {
-            fadeProgress += GameManager.Instance.fadeMult * 3;
+            fadeProgress += GameManager.Instance.fadeMult * 5;
+
         }
     }
 }
